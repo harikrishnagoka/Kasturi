@@ -1,0 +1,157 @@
+---
+import { site, nav, serviceAreas, formatAddress } from '../data/site.js';
+import { withBase } from '../utils/url.js';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img src={withBase('/brand/logo-icon.png')} alt="" width="52" height="55" />
+      <p class="footer-name">{site.name}</p>
+      <p class="footer-te te">{site.nameTe}</p>
+      <p class="footer-tag">{site.tagline}</p>
+    </div>
+
+    <div>
+      <h4>Visit us</h4>
+      <address>
+        {formatAddress().split(', ').map((line) => <span>{line}</span>)}
+      </address>
+      <a class="footer-link" href={site.address.directionsUrl} target="_blank" rel="noopener">Get directions →</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>
+        <a class="footer-phone tnum" href={`tel:${site.phone.primary}`}>{site.phone.primaryDisplay}</a>
+      </p>
+      <p class="footer-note">Consultations are by appointment. Walk-ins are seen when the doctor is free.</p>
+    </div>
+
+    <div>
+      <h4>Treatments</h4>
+      <ul class="footer-list">
+        {nav.filter((n) => n.href !== '/' && n.href !== '/about/' && n.href !== '/contact/').map((n) => (
+          <li><a href={withBase(n.href)}>{n.label}</a></li>
+        ))}
+        <li><a href={withBase('/about/')}>About the doctor</a></li>
+        <li><a href={withBase('/contact/')}>Visit us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap areas">
+    <h4>Areas we serve</h4>
+    <p>{serviceAreas.join(' · ')} — and across east Hyderabad.</p>
+  </div>
+
+  <div class="wrap legal">
+    <p class="disclaimer">
+      The information on this website is for general education and does not replace a consultation.
+      Treatment outcomes vary from person to person. Please speak to {site.doctor.name} about your own condition.
+    </p>
+    <div class="legal-row">
+      <span>© {year} {site.name}</span>
+      <span>{site.doctor.name}, {site.doctor.qualification}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--forest-deep);
+    color: #C9DAD1;
+    padding-block: clamp(40px, 6vw, 64px) 28px;
+    margin-top: clamp(48px, 7vw, 80px);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 36px 28px;
+  }
+  @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+  .footer-brand img { width: 46px; margin-bottom: 12px; }
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: #F2F7F3;
+    margin: 0 0 2px;
+  }
+  .footer-te { font-size: 0.95rem; color: #9DB3A8; margin: 0 0 8px; }
+  .footer-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #E3A63F;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  h4 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #8FC0AB;
+    margin: 0 0 12px;
+  }
+
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+
+  .footer-link, .footer-list a {
+    color: #C9DAD1;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .footer-link:hover, .footer-list a:hover { color: #E3A63F; text-decoration: underline; }
+
+  .footer-phone {
+    color: #E3A63F;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+  .footer-phone:hover { text-decoration: underline; color: #F2C878; }
+
+  .footer-note { font-size: 0.86rem; color: #9DB3A8; margin-top: 8px; }
+
+  .footer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+
+  .areas {
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .areas p { font-size: 0.9rem; color: #9DB3A8; margin: 0; }
+
+  .legal {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .disclaimer {
+    font-size: 0.82rem;
+    color: #8B9E94;
+    max-width: 70ch;
+    margin-bottom: 14px;
+  }
+  .legal-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: #8B9E94;
+  }
+</style>

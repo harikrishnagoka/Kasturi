@@ -1,0 +1,103 @@
+---
+import { site } from '../data/site.js';
+// Rendered as "Checking…" and resolved on the client, because the correct
+// answer depends on the current time in Asia/Kolkata, not on build time.
+---
+
+<div class="open-status" data-hours={JSON.stringify(site.hours)}>
+  <span class="dot" aria-hidden="true"></span>
+  <span class="label">Hours</span>
+</div>
+
+<style>
+  .open-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    flex: none;
+  }
+  .open-status[data-state='open'] .dot {
+    background: #6FD39B;
+    box-shadow: 0 0 0 3px rgba(111, 211, 155, 0.22);
+  }
+  .open-status[data-state='closed'] .dot { background: #E0866B; }
+  .open-status[data-state='soon'] .dot { background: #F2C878; }
+</style>
+
+<script>
+  const el = document.querySelector('.open-status');
+  if (el) {
+    const hours = JSON.parse(el.dataset.hours);
+    const label = el.querySelector('.label');
+
+    const render = () => {
+      // Read "now" as it is in Hyderabad, whatever timezone the visitor is in.
+      const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Kolkata',
+        weekday: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).formatToParts(new Date());
+
+      const get = (t) => parts.find((p) => p.type === t)?.value;
+      const weekday = get('weekday');
+      const mins = Number(get('hour')) * 60 + Number(get('minute'));
+
+      const today = hours.find((h) => h.day === weekday);
+      const toMins = (t) => {
+        const [h, m] = t.split(':').map(Number);
+        return h * 60 + m;
+      };
+
+      const fmt = (t) => {
+        const [h, m] = t.split(':').map(Number);
+        const ampm = h >= 12 ? 'pm' : 'am';
+        const h12 = h % 12 === 0 ? 12 : h % 12;
+        return m ? `${h12}:${String(m).padStart(2, '0')} ${ampm}` : `${h12} ${ampm}`;
+      };
+
+      // The next day that actually has opening hours, for the "opens X" message.
+      const nextOpenDay = () => {
+        const order = hours.map((h) => h.day);
+        const start = order.indexOf(weekday);
+        for (let i = 1; i <= 7; i++) {
+          const cand = hours[(start + i) % 7];
+          if (cand.open) return cand;
+        }
+        return null;
+      };
+
+      if (today?.open) {
+        const openM = toMins(today.open);
+        const closeM = toMins(today.close);
+        if (mins >= openM && mins < closeM) {
+          const left = closeM - mins;
+          el.dataset.state = left <= 60 ? 'soon' : 'open';
+          label.textContent = left <= 60 ? `Closing at ${fmt(today.close)}` : `Open now · until ${fmt(today.close)}`;
+          return;
+        }
+        if (mins < openM) {
+          el.dataset.state = 'closed';
+          label.textContent = `Closed · opens ${fmt(today.open)}`;
+          return;
+        }
+      }
+
+      const next = nextOpenDay();
+      el.dataset.state = 'closed';
+      label.textContent = next ? `Closed · opens ${next.short} ${fmt(next.open)}` : 'Closed';
+    };
+
+    render();
+    setInterval(render, 60000);
+  }
+</script>

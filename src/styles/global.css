@@ -1,0 +1,344 @@
+/*
+  Kasturi Ayurveda Hospital — design system
+  ------------------------------------------------------------------
+  Design thesis: patients searching for piles, fistula or fissure treatment
+  are in pain and usually embarrassed. Everything here is tuned for calm and
+  discretion — warm paper grounds, a deep forest ink taken straight from the
+  logo, and turmeric used sparingly as the single accent. Deliberately not the
+  pastel "wellness spa" look: this is a surgical centre.
+
+  Palette is sampled from the logo mark: #284840 forest, #B87810 turmeric.
+*/
+
+:root {
+  /* Grounds — warm, paper-like, never pure white */
+  --paper: #F7F3EA;
+  --paper-raised: #FFFDF8;
+  --paper-sunk: #EFE9DB;
+
+  /* Ink — the logo forest, plus softer steps that keep a green bias */
+  --ink: #1B2A24;
+  --ink-body: #3D4F47;
+  --ink-muted: #6B7A72;
+  --ink-faint: #94A199;
+
+  /* Brand */
+  --forest: #284840;
+  --forest-deep: #1B332C;
+  --forest-tint: #E3EAE5;
+  --turmeric: #B87810;
+  --turmeric-deep: #8A5806;
+  --turmeric-tint: #F7EBD4;
+
+  /* Semantic — kept separate from the accent */
+  --positive: #2F6A46;
+  --positive-tint: #E2F0E7;
+  --alert: #A6432A;
+  --alert-tint: #F8E7E1;
+
+  --line: #DDD5C4;
+  --line-strong: #C4B9A2;
+
+  --font-display: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Karla', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-te: 'Noto Sans Telugu', 'Gautami', 'Noto Serif Telugu', sans-serif;
+
+  --shadow-sm: 0 1px 2px rgba(27, 42, 36, 0.06);
+  --shadow: 0 2px 8px rgba(27, 42, 36, 0.07), 0 1px 2px rgba(27, 42, 36, 0.05);
+  --shadow-lg: 0 12px 32px rgba(27, 42, 36, 0.10), 0 2px 6px rgba(27, 42, 36, 0.05);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 18px;
+
+  --wrap: 1140px;
+  --wrap-narrow: 720px;
+
+  /* Height of the fixed mobile action bar, so content can clear it */
+  --actionbar-h: 0px;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #121A17;
+    --paper-raised: #1A2521;
+    --paper-sunk: #0D1512;
+
+    --ink: #ECF1ED;
+    --ink-body: #C3CFC8;
+    --ink-muted: #8F9E96;
+    --ink-faint: #6E7D75;
+
+    --forest: #8FC0AB;
+    --forest-deep: #B7D8C8;
+    --forest-tint: #1E2E28;
+    --turmeric: #E3A63F;
+    --turmeric-deep: #F2C878;
+    --turmeric-tint: #2E2413;
+
+    --positive: #79BE96;
+    --positive-tint: #1B2E23;
+    --alert: #E0866B;
+    --alert-tint: #2E1C17;
+
+    --line: #2A3A34;
+    --line-strong: #3D5148;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #121A17;
+  --paper-raised: #1A2521;
+  --paper-sunk: #0D1512;
+
+  --ink: #ECF1ED;
+  --ink-body: #C3CFC8;
+  --ink-muted: #8F9E96;
+  --ink-faint: #6E7D75;
+
+  --forest: #8FC0AB;
+  --forest-deep: #B7D8C8;
+  --forest-tint: #1E2E28;
+  --turmeric: #E3A63F;
+  --turmeric-deep: #F2C878;
+  --turmeric-tint: #2E2413;
+
+  --positive: #79BE96;
+  --positive-tint: #1B2E23;
+  --alert: #E0866B;
+  --alert-tint: #2E1C17;
+
+  --line: #2A3A34;
+  --line-strong: #3D5148;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-body);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: var(--actionbar-h);
+}
+
+::selection {
+  background: var(--turmeric-tint);
+  color: var(--turmeric-deep);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+h4 { font-size: 1.05rem; font-family: var(--font-body); font-weight: 700; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--forest);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--turmeric-deep); }
+
+:focus-visible {
+  outline: 2.5px solid var(--turmeric);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.te {
+  font-family: var(--font-te);
+  font-feature-settings: 'kern';
+}
+
+/* ---------- layout ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(18px, 4vw, 40px);
+}
+.wrap-narrow { max-width: var(--wrap-narrow); }
+
+section { padding-block: clamp(48px, 7vw, 88px); }
+.section-sunk { background: var(--paper-sunk); }
+/*
+  A fixed deep-forest band, used for the same "make a confident statement"
+  moments as the footer. Deliberately NOT theme-tokenised — like the footer,
+  it commits to one look (dark ground, light text) in both site themes, so it
+  must never source its colors from tokens that flip with the site theme.
+*/
+.section-forest {
+  background: #1B332C;
+  --ink: #F2F7F3;
+  --ink-body: #C9DAD1;
+  --ink-muted: #9DB3A8;
+  --line: rgba(255, 255, 255, 0.14);
+  --paper-raised: rgba(255, 255, 255, 0.055);
+  --turmeric: #E3A63F;
+  --turmeric-deep: #F2C878;
+  --forest: #8FC0AB;
+  color: #C9DAD1;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--turmeric-deep);
+  margin-bottom: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: var(--turmeric);
+  flex: none;
+}
+.section-forest .eyebrow { color: var(--turmeric); }
+
+.lede {
+  font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+  color: var(--ink-body);
+  max-width: 62ch;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 50px;
+  padding: 0.7em 1.4em;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-call {
+  /* --paper-raised flips with the theme (near-white in light, near-black in
+     dark) and --forest flips the opposite way, so this pairing keeps correct
+     contrast in both themes without a manual override. */
+  background: var(--forest);
+  color: var(--paper-raised);
+  box-shadow: var(--shadow);
+}
+.btn-call:hover { filter: brightness(0.92); }
+
+.btn-whatsapp {
+  background: var(--turmeric);
+  color: #23180A;
+  box-shadow: var(--shadow);
+}
+.btn-whatsapp:hover { background: var(--turmeric-deep); color: #FFF7E6; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover { border-color: var(--forest); color: var(--forest); }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* ---------- utilities ---------- */
+.stack { display: flex; flex-direction: column; }
+.row { display: flex; flex-wrap: wrap; align-items: center; }
+.gap-sm { gap: 10px; }
+.gap { gap: 18px; }
+.gap-lg { gap: 32px; }
+.tnum { font-variant-numeric: tabular-nums; }
+.scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 200;
+  background: var(--forest);
+  color: #FFFDF8;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- scroll reveal ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

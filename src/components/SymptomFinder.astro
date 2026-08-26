@@ -1,0 +1,148 @@
+---
+/**
+ * A two-question router. Most visitors do not know whether they have piles, a
+ * fissure or a fistula — they only know what it feels like. Rather than making
+ * them read three pages to find out, this asks the one question that actually
+ * separates the three (what dominates: bleeding, pain, or discharge) and sends
+ * them to the right page.
+ *
+ * It is a signpost, not a diagnosis, and it says so.
+ */
+import { withBase } from '../utils/url.js';
+---
+
+<div class="finder" id="symptom-finder">
+  <div class="finder-head">
+    <p class="eyebrow">Not sure what it is?</p>
+    <h2>Start with what you notice most</h2>
+    <p class="lede">
+      Piles, fissure and fistula are frequently mistaken for one another. Pick the one that best
+      describes your main problem and we will point you to the right page.
+    </p>
+  </div>
+
+  <fieldset class="finder-options">
+    <legend class="visually-hidden">What do you notice most?</legend>
+
+    <button class="opt" data-target={withBase('/conditions/piles/')} data-answer="piles">
+      <span class="opt-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 3c-3 4-6 6.5-6 10a6 6 0 0 0 12 0c0-3.5-3-6-6-10Z" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="opt-body">
+        <strong>Bleeding, and a lump</strong>
+        <small>Bright red blood while passing motion. Usually not very painful.</small>
+      </span>
+    </button>
+
+    <button class="opt" data-target={withBase('/conditions/fissure/')} data-answer="fissure">
+      <span class="opt-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M13 2 6 13h5l-1 9 7-11h-5l1-9Z" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="opt-body">
+        <strong>Sharp, tearing pain</strong>
+        <small>Severe pain while passing motion that carries on afterwards. Only a streak of blood.</small>
+      </span>
+    </button>
+
+    <button class="opt" data-target={withBase('/conditions/fistula/')} data-answer="fistula">
+      <span class="opt-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 12h6a4 4 0 0 0 4-4V6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="4" cy="12" r="2"/><circle cx="14" cy="5" r="2"/>
+          <path d="M9 18h9" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="opt-body">
+        <strong>Discharge or a recurring boil</strong>
+        <small>A small opening near the back passage that leaks pus and keeps coming back.</small>
+      </span>
+    </button>
+  </fieldset>
+
+  <p class="finder-note" role="status" aria-live="polite">
+    This is a signpost, not a diagnosis — and the three often occur together. Only an examination can tell for certain.
+  </p>
+</div>
+
+<style>
+  .finder {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 4vw, 40px);
+    box-shadow: var(--shadow);
+  }
+
+  .finder-head { max-width: 64ch; margin-bottom: 26px; }
+  .finder-head h2 { margin-bottom: 0.4em; }
+
+  .finder-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    text-align: left;
+    padding: 18px;
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-body);
+    color: var(--ink-body);
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .opt:hover {
+    border-color: var(--turmeric);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  .opt.is-loading { border-color: var(--forest); }
+
+  .opt-icon {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--turmeric-tint);
+    color: var(--turmeric-deep);
+  }
+
+  .opt-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .opt-body strong { color: var(--ink); font-size: 1rem; }
+  .opt-body small { font-size: 0.87rem; line-height: 1.5; color: var(--ink-muted); }
+
+  .finder-note {
+    margin: 20px 0 0;
+    font-size: 0.87rem;
+    color: var(--ink-muted);
+    border-left: 2px solid var(--line-strong);
+    padding-left: 12px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .opt, .opt:hover { transition: none; transform: none; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('#symptom-finder .opt').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.classList.add('is-loading');
+      window.location.href = btn.dataset.target;
+    });
+  });
+</script>

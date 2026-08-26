@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, whatsappLink } from '../data/site.js';
+import { conditions } from '../data/conditions.js';
+import { withBase } from '../utils/url.js';
+---
+
+<Base title="Page not found" description="This page could not be found.">
+  <section class="notfound">
+    <div class="wrap wrap-narrow center">
+      <p class="eyebrow">404</p>
+      <h1>That page has moved or doesn't exist.</h1>
+      <p class="lede">
+        If you were looking for information on a specific condition, try one of these — or call the
+        hospital directly and we'll help you find what you need.
+      </p>
+      <div class="links">
+        {conditions.map((c) => <a href={withBase(`/conditions/${c.slug}/`)}>{c.name}</a>)}
+        <a href={withBase('/')}>Home</a>
+      </div>
+      <div class="row gap-sm center-row">
+        <a class="btn btn-call" href={`tel:${site.phone.primary}`}>Call {site.phone.primaryDisplay}</a>
+        <a class="btn btn-whatsapp" href={whatsappLink()} target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound { padding-block: clamp(56px, 10vw, 110px); }
+  .center { text-align: center; }
+  .center .lede { margin-inline: auto; }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 28px 0;
+  }
+  .links a {
+    padding: 9px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .links a:hover { border-color: var(--turmeric); color: var(--turmeric-deep); }
+  .center-row { justify-content: center; margin-top: 10px; }
+</style>

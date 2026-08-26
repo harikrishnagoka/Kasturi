@@ -1,0 +1,249 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { site, whatsappLink } from '../data/site.js';
+import { withBase, absoluteUrl } from '../utils/url.js';
+
+import waiting from '../assets/jd_uBQcT1GDld-250.jpg';
+import reception from '../assets/jd_XO2WOCAThi-250.jpg';
+
+const reviews = [
+  {
+    text: 'This is the best hospital. I went here for the treatment of fissures — the doctor treats well, I got the best result. The doctor\'s communication is very good with patients. Now I am good and healthy.',
+    author: 'Mahesh M.',
+    meta: 'Google review · Local Guide',
+  },
+  {
+    text: 'Excellent doctor, very supportive to patients. He provides good medicines with a cheaper price.',
+    author: 'Abhishek',
+    meta: 'Google review · Local Guide',
+  },
+  {
+    text: 'Very nice treatment, very nice doctor.',
+    author: 'Karampuri C.',
+    meta: 'Google review',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Physician',
+    '@id': absoluteUrl(Astro.site, '/about/#doctor'),
+    name: site.doctor.name,
+    honorificPrefix: 'Dr.',
+    honorificSuffix: site.doctor.qualification,
+    medicalSpecialty: 'Proctology',
+    knowsAbout: ['Kshara Sutra', 'Kshara Karma', 'Piles', 'Fistula-in-ano', 'Anal fissure'],
+    worksFor: { '@id': absoluteUrl(Astro.site, '/#organisation') },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.street,
+      addressLocality: site.address.locality,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.country,
+    },
+  },
+];
+---
+
+<Base
+  title={`${site.doctor.name} — Ayurvedic proctologist, Medipally`}
+  description={`Dr. Venkanna Kasturi, MS (Ayurveda), treats piles, fistula and fissure at Kasturi Ayurveda Hospital in Medipally, Hyderabad. Four generations of Ayurvedic practice.`}
+  schema={schema}
+>
+  <section class="about-hero">
+    <div class="wrap about-grid">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href={withBase('/')}>Home</a><span aria-hidden="true">/</span><span aria-current="page">About</span>
+        </nav>
+        <p class="eyebrow">Your doctor</p>
+        <h1>{site.doctor.name}</h1>
+        <p class="qual">{site.doctor.qualification}</p>
+        <p class="lede">
+          A specialist practice in Ayurvedic proctology — piles, fistula and fissure — in
+          {' '}{site.address.locality}, east Hyderabad.
+        </p>
+        <div class="row gap-sm">
+          <a class="btn btn-call" href={`tel:${site.phone.primary}`}>Call {site.phone.primaryDisplay}</a>
+          <a class="btn btn-whatsapp" href={whatsappLink()} target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="heritage-card">
+        <span class="heritage-num tnum">{site.heritage.generations}</span>
+        <p class="heritage-label">generations of the Kasturi family practising Ayurveda</p>
+        <p class="heritage-te te">గత నాలుగు తరాలుగా ఆయుర్వేద వైద్యంలో సేవలు</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sunk">
+    <div class="wrap story-grid">
+      <div class="story">
+        <h2>A family practice, narrowed to one thing</h2>
+        <p>
+          Ayurvedic medicine has been the Kasturi family's work for four generations. What has
+          changed with this generation is the focus: rather than treating everything, this centre
+          treats piles, fistula and fissure, and does so every working day.
+        </p>
+        <p>
+          That narrowness is the point. Kshara Sutra is a technique that rewards repetition — mapping
+          a tract accurately, judging how fast the thread should advance, knowing when a fissure will
+          heal on medicines alone and when it will not. These are judgements built from volume, not
+          from a textbook.
+        </p>
+        <h3>How the consultation goes</h3>
+        <p>
+          You will be asked what you have noticed and for how long. There will be a brief
+          examination — it is necessary, it is done privately, and it is over quickly. You will then
+          be told plainly what you have, what the options are, roughly how long treatment will take
+          and roughly what it will cost, before you commit to anything.
+        </p>
+        <h3>On cost</h3>
+        <p>
+          Patients mention pricing in their reviews more often than anything except the doctor's
+          manner. Medicines are dispensed in-house and kept affordable deliberately, because a
+          treatment people abandon halfway through is not a treatment.
+        </p>
+      </div>
+
+      <aside class="side">
+        <Image src={waiting} alt="The waiting area at Kasturi Ayurveda Hospital" widths={[320, 640]} sizes="(max-width: 860px) 100vw, 320px" loading="lazy" />
+        <Image src={reception} alt="Reception and in-house pharmacy" widths={[320, 640]} sizes="(max-width: 860px) 100vw, 320px" loading="lazy" />
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">In patients' words</p>
+      <h2>{site.rating.value}★ across {site.rating.count} Google reviews</h2>
+      <div class="grid grid-3 reviews">
+        {reviews.map((r) => (
+          <figure class="review reveal">
+            <span class="stars" aria-label="5 out of 5">★★★★★</span>
+            <blockquote><p>{r.text}</p></blockquote>
+            <figcaption><strong>{r.author}</strong><span>{r.meta}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="review-note">
+        Reviews are quoted from the hospital's public Google Business Profile.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-forest">
+    <div class="wrap wrap-narrow center">
+      <h2>The examination is the short part. The waiting is the long part.</h2>
+      <p class="lede">
+        If something has been bothering you for weeks, book a consultation and have it looked at.
+      </p>
+      <div class="row gap-sm center-row">
+        <a class="btn btn-whatsapp" href={`tel:${site.phone.primary}`}>Call {site.phone.primaryDisplay}</a>
+        <a class="btn btn-ghost btn-on-dark" href={withBase('/contact/')}>Find us</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about-hero { padding-block: clamp(28px, 4vw, 52px); }
+  .crumbs { display: flex; gap: 8px; font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 20px; }
+  .crumbs a { color: var(--ink-muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--forest); text-decoration: underline; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: clamp(28px, 5vw, 56px);
+    align-items: center;
+  }
+  @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .qual {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--turmeric-deep);
+    font-weight: 700;
+    margin-top: -0.5em;
+  }
+  .about-hero .row { margin-top: 24px; }
+
+  .heritage-card {
+    background: var(--forest-tint);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px;
+    text-align: center;
+  }
+  .heritage-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 4.2rem;
+    line-height: 1;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  .heritage-label {
+    margin: 10px 0 8px;
+    font-size: 0.95rem;
+    color: var(--ink-body);
+  }
+  .heritage-te { margin: 0; font-size: 0.88rem; color: var(--ink-muted); }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: clamp(28px, 5vw, 52px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .story-grid { grid-template-columns: 1fr; } }
+
+  .story { max-width: 68ch; }
+  .story h3 { margin-top: 1.6em; }
+
+  .side { display: flex; flex-direction: column; gap: 16px; }
+  .side img {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  @media (max-width: 860px) { .side { flex-direction: row; } }
+
+  .reviews { margin-top: 30px; }
+  .review {
+    margin: 0;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stars { color: var(--turmeric); letter-spacing: 0.12em; font-size: 0.9rem; }
+  .review blockquote { margin: 0; }
+  .review blockquote p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.04rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .review figcaption { display: flex; flex-direction: column; margin-top: auto; font-size: 0.85rem; }
+  .review figcaption strong { color: var(--ink); }
+  .review figcaption span { color: var(--ink-muted); }
+
+  .review-note { margin-top: 18px; font-size: 0.83rem; color: var(--ink-muted); }
+
+  .center { text-align: center; }
+  .center .lede { margin-inline: auto; }
+  .center-row { justify-content: center; margin-top: 24px; }
+  .btn-on-dark { color: var(--ink); border-color: rgba(255, 255, 255, 0.3); }
+  .btn-on-dark:hover { border-color: #E3A63F; color: #E3A63F; }
+</style>
