@@ -7,7 +7,7 @@ Pulled from Google Search, Google Maps/Business Profile, Facebook, Justdial, mag
 
 ## Identity
 - **Name:** Kasturi Ayurveda Hospital (కస్తూరి ఆయుర్వేద హాస్పిటల్)
-- **Doctor:** Dr. Venkanna Kasturi, MS (Ayurveda)
+- **Doctor:** Dr. Venkatesh Kasturi, MS (Ayurveda)
 - **Category:** Hospital / Ayurvedic clinic
 
 ## Location (conflicting sources — verify exact one)
