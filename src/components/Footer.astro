@@ -60,7 +60,9 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: var(--forest-deep);
+    /* Fixed deep-forest, not the theme-flipping --forest-deep token — see the
+       .section-forest comment in global.css for why. */
+    background: #1B332C;
     color: #C9DAD1;
     padding-block: clamp(40px, 6vw, 64px) 28px;
     margin-top: clamp(48px, 7vw, 80px);
