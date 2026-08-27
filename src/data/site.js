@@ -27,7 +27,7 @@ export const site = {
   },
 
   doctor: {
-    name: 'Dr. Venkanna Kasturi',
+    name: 'Dr. Venkatesh Kasturi',
     qualification: 'MS (Ayurveda)',
     // VERIFY: AYUSH / state council registration number — required on the site
     // as a medical trust signal and for Google's E-E-A-T assessment.

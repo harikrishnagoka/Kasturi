@@ -7,7 +7,7 @@
  * in plain language is far more likely to pick up the phone.
  *
  * MEDICAL REVIEW REQUIRED: every clinical claim below must be checked and
- * signed off by Dr. Venkanna Kasturi before this site goes live.
+ * signed off by Dr. Venkatesh Kasturi before this site goes live.
  */
 
 export const conditions = [
@@ -19,7 +19,7 @@ export const conditions = [
     also: 'Haemorrhoids',
     title: 'Piles treatment in Medipally, Hyderabad',
     description:
-      'Ayurvedic piles (haemorrhoids) treatment in Medipally, Hyderabad. Kshara Sutra and Kshara Karma by Dr. Venkanna Kasturi, MS (Ayurveda). No general anaesthesia, same-day discharge.',
+      'Ayurvedic piles (haemorrhoids) treatment in Medipally, Hyderabad. Kshara Sutra and Kshara Karma by Dr. Venkatesh Kasturi, MS (Ayurveda). No general anaesthesia, same-day discharge.',
     summary:
       'Swollen veins in and around the back passage. They are extremely common, they are not dangerous in themselves, and they are very treatable — most people simply wait far longer than they need to before getting help.',
     symptoms: [
@@ -79,7 +79,7 @@ export const conditions = [
     also: 'Fistula-in-ano',
     title: 'Fistula treatment in Medipally, Hyderabad — Kshara Sutra',
     description:
-      'Ayurvedic fistula-in-ano treatment in Medipally, Hyderabad using Kshara Sutra, the thread procedure with a low recurrence rate. Dr. Venkanna Kasturi, MS (Ayurveda).',
+      'Ayurvedic fistula-in-ano treatment in Medipally, Hyderabad using Kshara Sutra, the thread procedure with a low recurrence rate. Dr. Venkatesh Kasturi, MS (Ayurveda).',
     summary:
       'A small abnormal tunnel that forms between the anal canal and the skin outside, usually after an infection or abscess. It does not heal on its own, and it is the condition Kshara Sutra is best known for treating.',
     symptoms: [
@@ -137,7 +137,7 @@ export const conditions = [
     also: 'Anal fissure',
     title: 'Anal fissure treatment in Medipally, Hyderabad',
     description:
-      'Ayurvedic anal fissure (Parikartika) treatment in Medipally, Hyderabad. Relief from tearing pain while passing motion, without surgery in most cases. Dr. Venkanna Kasturi, MS (Ayurveda).',
+      'Ayurvedic anal fissure (Parikartika) treatment in Medipally, Hyderabad. Relief from tearing pain while passing motion, without surgery in most cases. Dr. Venkatesh Kasturi, MS (Ayurveda).',
     summary:
       'A small tear in the lining of the anal canal. It causes pain out of all proportion to its size, and it traps people in a cycle: passing motion hurts, so they avoid it, so stools get harder, so the tear gets worse.',
     symptoms: [
