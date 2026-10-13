@@ -195,7 +195,7 @@ import '../styles/global.css';
       .hero-inner .reveal.d2 { animation-delay: .24s; }
       .hero-inner .reveal.d3 { animation-delay: .36s; }
       @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-      html.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+      html.js .reveal:not(.in) { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
       html.js .reveal.d1 { transition-delay: .12s; }
       html.js .reveal.d2 { transition-delay: .24s; }
       html.js .reveal.d3 { transition-delay: .36s; }
@@ -203,7 +203,7 @@ import '../styles/global.css';
       .reveal.in { opacity: 1; transform: none; }
 
       @media (prefers-reduced-motion: reduce) {
-        .reveal { opacity: 1; transform: none; transition: none; }
+        html.js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
         .orb, .ring, .band { transform: none !important; }
         .cue span::after { animation: none; }
       }
@@ -212,11 +212,21 @@ import '../styles/global.css';
     <script>
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Scroll reveal
-      const io = new IntersectionObserver((entries) => {
-        for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      }, { threshold: 0.15 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      // Scroll reveal (plain scroll check, works on every browser)
+      const reveals = Array.from(document.querySelectorAll('.reveal'));
+      const showReveals = () => {
+        const h = window.innerHeight || document.documentElement.clientHeight;
+        for (const el of reveals) {
+          if (!el.classList.contains('in')) {
+            const r = el.getBoundingClientRect();
+            if (r.top < h * 0.92 && r.bottom > 0) el.classList.add('in');
+          }
+        }
+      };
+      window.addEventListener('scroll', showReveals, { passive: true });
+      window.addEventListener('resize', showReveals);
+      showReveals();
+      setTimeout(showReveals, 400);
 
       // Counters
       const cio = new IntersectionObserver((entries) => {
