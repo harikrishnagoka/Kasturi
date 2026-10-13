@@ -86,6 +86,43 @@ import '../styles/global.css';
       </blockquote>
     </section>
 
+    <section class="block thread-section" id="threadviz">
+      <figure class="thread-card reveal">
+        <svg viewBox="0 0 240 300" role="img" aria-labelledby="demo-viz-title">
+          <title id="demo-viz-title">Diagram: a medicated thread runs through the whole fistula tract and out both sides, tied in a knot at the outer end, and keeps working as tissue heals behind it</title>
+          <defs>
+            <linearGradient id="tissue-d" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--forest-tint)" />
+              <stop offset="100%" stop-color="var(--paper-sunk)" />
+            </linearGradient>
+          </defs>
+
+          <rect x="20" y="20" width="200" height="260" rx="14" fill="url(#tissue-d)" stroke="var(--line)" />
+
+          <!-- the tract, extended out both openings -->
+          <path d="M34 264 C 40 256, 52 246, 62 234 C 92 194, 128 176, 168 92 C 176 80, 186 68, 196 56" fill="none" stroke="var(--line-strong)" stroke-width="16" stroke-linecap="round" opacity="0.55" />
+
+          <!-- healed portion -->
+          <path d="M62 234 C 78 214, 94 200, 108 186" fill="none" stroke="var(--positive)" stroke-width="16" stroke-linecap="round" opacity="0.35" class="viz-healed" />
+
+          <!-- the thread, continuing out both sides -->
+          <path d="M34 264 C 40 256, 52 246, 62 234 C 92 194, 128 176, 168 92 C 176 80, 186 68, 196 56" fill="none" stroke="var(--turmeric)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="7 5" class="viz-thread" />
+
+          <!-- the knot at the outer end -->
+          <path d="M34 264 C 24 258, 34 246, 44 254 C 52 261, 40 272, 32 265" fill="none" stroke="var(--turmeric)" stroke-width="3.5" stroke-linecap="round" />
+
+          <circle cx="62" cy="234" r="6" fill="var(--forest)" />
+          <circle cx="168" cy="92" r="6" fill="var(--forest)" />
+
+          <text x="30" y="284" class="viz-label"><tspan class="te">బయటి పుండు</tspan><tspan class="en">External opening</tspan></text>
+          <text x="112" y="48" class="viz-label"><tspan class="te">లోపలి పుండు</tspan><tspan class="en">Internal opening</tspan></text>
+          <text x="62" y="248" class="viz-label viz-label-good"><tspan class="te">ముడి</tspan><tspan class="en">knot</tspan></text>
+          <text x="86" y="206" class="viz-label viz-label-good"><tspan class="te">మాన్పు</tspan><tspan class="en">healing</tspan></text>
+        </svg>
+        <figcaption><span class="te">దారం మొత్తం సోగు వెంట ఉంటుంది, రెండు వైపులా బయటకు వస్తుంది. అది ముందుకు వెళ్ళడంతో వెనుక కణజాలం మూసుకుంటుంది.</span><span class="en">The thread runs the whole tract and out both sides. Tissue closes behind it as it advances.</span></figcaption>
+      </figure>
+    </section>
+
     <section class="block" id="ayurveda">
       <p class="kicker reveal"><span class="te">02 · ఆయుర్వేద మార్గం</span><span class="en">02 · the Ayurvedic route</span></p>
       <h2 class="reveal d1"><span class="te">క్షార సూత్రం భిన్నంగా ఏం చేస్తుంది</span><span class="en">What Kshara Sutra does differently</span></h2>
@@ -199,6 +236,18 @@ import '../styles/global.css';
       .final p { color: var(--ink-muted); margin: 0 0 24px; }
       .backhome { display: inline-block; margin-top: 26px; color: var(--forest); font-weight: 700; text-decoration: none; }
       .demofoot { text-align: center; padding: 24px; color: var(--ink-faint); font-size: 13px; }
+
+      /* animated thread viz (copied from the kshara sutra page) */
+      .thread-section { display: flex; justify-content: center; }
+      .thread-card { width: min(420px, 100%); margin: 0; background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px 22px; box-shadow: var(--shadow); }
+      .thread-card svg { width: 100%; height: auto; }
+      .thread-card figcaption { margin-top: 10px; font-size: 0.84rem; color: var(--ink-muted); text-align: center; }
+      .viz-label { font-family: var(--font-body); font-size: 9px; fill: var(--ink-muted); letter-spacing: 0.04em; }
+      .viz-label-good { fill: var(--positive); font-style: italic; }
+      @media (prefers-reduced-motion: no-preference) {
+        .viz-thread { stroke-dashoffset: 96; animation: crawl 4s linear infinite; }
+        @keyframes crawl { to { stroke-dashoffset: 0; } }
+      }
 
       /* language toggle: both versions are in the markup, the html class picks one */
       html.te .en, html.en .te { display: none; }
