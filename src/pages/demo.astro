@@ -1,25 +1,32 @@
 ---
 // TEST PAGE (not linked from the menu) — motion-graphics showcase:
 // scroll-reveal sections, parallax layers and animated counters.
-// Built to preview how the real condition pages could feel.
+// Telugu first, English toggle at the top.
 import '../styles/global.css';
 ---
 <!doctype html>
-<html lang="en">
+<html lang="te">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Test page · surgery vs Kshara Sutra | Kasturi Ayurveda Hospital</title>
+    <title>శస్త్రచికిత్స vs క్షార సూత్రం | కస్తూరి ఆయుర్వేద ఆసుపత్రి</title>
     <meta name="robots" content="noindex, nofollow" />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      var l = localStorage.getItem('kast-lang') || 'te';
+      document.documentElement.classList.add(l);
+    </script>
     <link rel="icon" href="/Kasturi/brand/icon-32.png" />
   </head>
   <body class="demo">
     <div class="progress" aria-hidden="true"><span id="bar"></span></div>
 
     <header class="topbar reveal">
-      <a class="home" href="/Kasturi/">← Kasturi Ayurveda Hospital</a>
-      <span class="chip">test page · not in the menu</span>
+      <a class="home" href="/Kasturi/"><span class="te">← కస్తూరి ఆయుర్వేద ఆసుపత్రి</span><span class="en">← Kasturi Ayurveda Hospital</span></a>
+      <span class="right">
+        <button id="langtoggle" class="langbtn" type="button">English</button>
+        <span class="chip"><span class="te">టెస్ట్ పేజీ</span><span class="en">test page</span></span>
+      </span>
     </header>
 
     <section class="hero">
@@ -28,45 +35,45 @@ import '../styles/global.css';
       <div class="ring ring-a" data-parallax="0.5" aria-hidden="true"></div>
       <div class="ring ring-b" data-parallax="0.12" aria-hidden="true"></div>
       <div class="hero-inner">
-        <p class="kicker reveal">Complications of surgery, honestly told</p>
-        <h1 class="reveal d1">Before you book an operation,<br /><em>meet the thread</em> that replaced it.</h1>
-        <p class="lede reveal d2">A plain-language look at what modern piles and fistula surgery asks of you, and why Ayurveda's Kshara Sutra was designed differently.</p>
+        <p class="kicker reveal"><span class="te">శస్త్రచికిత్స లోపాలు, నిజాయితీగా</span><span class="en">Complications of surgery, honestly told</span></p>
+        <h1 class="reveal d1"><span class="te">ఆపరేషన్ బుక్ చేసే ముందు,<br /><em>దారాన్ని</em> కలవండి.</span><span class="en">Before you book an operation,<br /><em>meet the thread</em> that replaced it.</span></h1>
+        <p class="lede reveal d2"><span class="te">మొల మరియు భగందర శస్త్రచికిత్స మీ నుంచి ఏమి కోరుతుందో, ఆయుర్వేదంలోని క్షార సూత్రం ఎందుకు భిన్నంగా రూపొందించబడిందో సరళంగా చూద్దాం.</span><span class="en">A plain-language look at what modern piles and fistula surgery asks of you, and why Ayurveda's Kshara Sutra was designed differently.</span></p>
         <div class="hero-cta reveal d3">
-          <a class="btn solid" href="tel:+919246565535">Call the hospital</a>
-          <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          <a class="btn solid" href="tel:+919246565535"><span class="te">ఆసుపత్రికి కాల్ చేయండి</span><span class="en">Call the hospital</span></a>
+          <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener"><span class="te">WhatsApp లో అడగండి</span><span class="en">Ask on WhatsApp</span></a>
         </div>
       </div>
       <div class="cue" aria-hidden="true"><span></span></div>
     </section>
 
     <section class="block" id="surgery">
-      <p class="kicker reveal">01 · the usual route</p>
-      <h2 class="reveal d1">What conventional surgery asks of you</h2>
+      <p class="kicker reveal"><span class="te">01 · సాధారణ మార్గం</span><span class="en">01 · the usual route</span></p>
+      <h2 class="reveal d1"><span class="te">సాధారణ శస్త్రచికిత్స మీ నుంచి ఏమి కోరుతుంది</span><span class="en">What conventional surgery asks of you</span></h2>
       <div class="cards">
         <article class="card reveal">
           <span class="glyph">🔥</span>
-          <h3>Weeks of raw pain</h3>
-          <p>Open hemorrhoidectomy is famous for painful healing. Daily dressings, sitz baths and strong painkillers are routine for the first couple of weeks.</p>
+          <h3><span class="te">వారాల తరబడి పుండ్ల నొప్పి</span><span class="en">Weeks of raw pain</span></h3>
+          <p><span class="te">ఓపెన్ హెమోరాయిడెక్టమీ నొప్పితో కూడిన కోతకు ప్రసిద్ధి. మొదటి రెండు వారాలు రోజూ డ్రెస్సింగ్లు, సిట్జ్ బాత్లు, బలమైన నొప్పి మందులు సాధారణం.</span><span class="en">Open hemorrhoidectomy is famous for painful healing. Daily dressings, sitz baths and strong painkillers are routine for the first couple of weeks.</span></p>
         </article>
         <article class="card reveal d1">
           <span class="glyph">🏥</span>
-          <h3>Anaesthesia and a hospital bed</h3>
-          <p>Most operations need spinal or general anaesthesia, a hospital stay, and days to weeks away from work.</p>
+          <h3><span class="te">మత్తు మందు మరియు ఆసుపత్రి పడక</span><span class="en">Anaesthesia and a hospital bed</span></h3>
+          <p><span class="te">చాలా శస్త్రచికిత్సలకు స్పైనల్ లేదా జనరల్ మత్తు, ఆసుపత్రిలో బస, పని నుంచి రోజుల నుంచి వారాల సమయం పడుతుంది.</span><span class="en">Most operations need spinal or general anaesthesia, a hospital stay, and days to weeks away from work.</span></p>
         </article>
         <article class="card reveal d2">
           <span class="glyph">🩸</span>
-          <h3>Bleeding and infection</h3>
-          <p>Delayed bleeding and wound infection are known complications of haemorrhoid and fistula surgery, sometimes needing another procedure.</p>
+          <h3><span class="te">రక్తస్రావం మరియు ఇన్ఫెక్షన్</span><span class="en">Bleeding and infection</span></h3>
+          <p><span class="te">ఆలస్యమైన రక్తస్రావం, గాయం ఇన్ఫెక్షన్ మొల మరియు భగందర శస్త్రచికిత్సకు తెలిసిన లోపాలు, కొన్నిసార్లు మరో ప్రొసీజర్ అవసరం పడుతుంది.</span><span class="en">Delayed bleeding and wound infection are known complications of haemorrhoid and fistula surgery, sometimes needing another procedure.</span></p>
         </article>
         <article class="card reveal d3">
           <span class="glyph">♻️</span>
-          <h3>It can come back</h3>
-          <p>Piles and fistula recur after surgery. Recurrence rates depend on the technique and how much tissue was removed or cut.</p>
+          <h3><span class="te">తిరిగి రావచ్చు</span><span class="en">It can come back</span></h3>
+          <p><span class="te">శస్త్రచికిత్స తర్వాత మొలలు, భగందరం తిరిగి రావచ్చు. అది పద్ధతి మీద మరియు ఎంత కణజాలం తీసివేశారో దాని మీద ఆధారపడి ఉంటుంది.</span><span class="en">Piles and fistula recur after surgery. Recurrence rates depend on the technique and how much tissue was removed or cut.</span></p>
         </article>
         <article class="card alert reveal d4">
           <span class="glyph">⚠️</span>
-          <h3>The muscle that keeps you continent</h3>
-          <p>Fistula surgery cuts through the sphincter area. Cut too far, and patients can be left with difficulty holding stool or gas. This is the risk every fistula patient should ask about.</p>
+          <h3><span class="te">మలాన్ని ఆపుకునే కండరం</span><span class="en">The muscle that keeps you continent</span></h3>
+          <p><span class="te">భగందర శస్త్రచికిత్స స్ఫింక్టర్ ప్రాంతం గుండా కట్ చేస్తుంది. ఎక్కువ కట్ చేస్తే, మలం లేదా వాయువును ఆపుకోవడంలో ఇబ్బంది మిగిలిపోవచ్చు. ప్రతి భగందర రోగి డాక్టర్‌ని అడగాల్సిన ప్రమాదం ఇది.</span><span class="en">Fistula surgery cuts through the sphincter area. Cut too far, and patients can be left with difficulty holding stool or gas. This is the risk every fistula patient should ask about.</span></p>
         </article>
       </div>
     </section>
@@ -80,56 +87,56 @@ import '../styles/global.css';
     </section>
 
     <section class="block" id="ayurveda">
-      <p class="kicker reveal">02 · the Ayurvedic route</p>
-      <h2 class="reveal d1">What Kshara Sutra does differently</h2>
+      <p class="kicker reveal"><span class="te">02 · ఆయుర్వేద మార్గం</span><span class="en">02 · the Ayurvedic route</span></p>
+      <h2 class="reveal d1"><span class="te">క్షార సూత్రం భిన్నంగా ఏం చేస్తుంది</span><span class="en">What Kshara Sutra does differently</span></h2>
       <div class="cards">
         <article class="card good reveal">
           <span class="glyph">🧵</span>
-          <h3>A thread, not a knife</h3>
-          <p>A medicated thread treated with herbal alkaline preparations works along the fistula tract slowly, cutting and healing at the same time. The sphincter muscle is spared.</p>
+          <h3><span class="te">కత్తి కాదు, దారం</span><span class="en">A thread, not a knife</span></h3>
+          <p><span class="te">మూలికా క్షార మిశ్రమాలతో తయారు చేసిన మందుల దారం భగందర సోగు వెంట నెమ్మదిగా పనిచేస్తుంది, కట్ చేస్తూనే మాన్పుతుంది. స్ఫింక్టర్ కండరం తగలదు.</span><span class="en">A medicated thread treated with herbal alkaline preparations works along the fistula tract slowly, cutting and healing at the same time. The sphincter muscle is spared.</span></p>
         </article>
         <article class="card good reveal d1">
           <span class="glyph">🕐</span>
-          <h3>Day procedure, local anaesthesia</h3>
-          <p>The thread is placed under local anaesthesia. No spinal or general anaesthesia, and you go home the same day.</p>
+          <h3><span class="te">డే ప్రొసీజర్, లోకల్ మత్తు</span><span class="en">Day procedure, local anaesthesia</span></h3>
+          <p><span class="te">దారం లోకల్ మత్తుతో వేస్తారు. స్పైనల్ లేదా జనరల్ మత్తు లేదు, అదే రోజు ఇంటికి వెళ్ళవచ్చు.</span><span class="en">The thread is placed under local anaesthesia. No spinal or general anaesthesia, and you go home the same day.</span></p>
         </article>
         <article class="card good reveal d2">
           <span class="glyph">📅</span>
-          <h3>Weekly visits, not weeks in bed</h3>
-          <p>Each week the thread is changed at a short outpatient visit. Most patients keep working through treatment.</p>
+          <h3><span class="te">వారాల పడక కాదు, వారానికో విజిట్</span><span class="en">Weekly visits, not weeks in bed</span></h3>
+          <p><span class="te">ప్రతి వారం చిన్న ఓపీ విజిట్‌లో దారం మారుస్తారు. చికిత్స సమయంలో చాలా మంది రోగులు పని మానుకోరు.</span><span class="en">Each week the thread is changed at a short outpatient visit. Most patients keep working through treatment.</span></p>
         </article>
         <article class="card good reveal d3">
           <span class="glyph">🛡️</span>
-          <h3>Built for low recurrence</h3>
-          <p>Kshara Sutra treats the whole tract, so recurrence is low, which is why it is recognised and practised in government Ayurvedic hospitals across India.</p>
+          <h3><span class="te">తిరిగి రాకుండా రూపొందించింది</span><span class="en">Built for low recurrence</span></h3>
+          <p><span class="te">క్షార సూత్రం మొత్తం సోగును చికిత్స చేస్తుంది కాబట్టి తిరిగి రావడం తక్కువ. అందుకే భారతవ్యాప్తంగా ప్రభుత్వ ఆయుర్వేద ఆసుపత్రుల్లో గుర్తింపు పొంది వాడుకలో ఉంది.</span><span class="en">Kshara Sutra treats the whole tract, so recurrence is low, which is why it is recognised and practised in government Ayurvedic hospitals across India.</span></p>
         </article>
       </div>
 
       <div class="stats reveal">
-        <div class="stat"><span class="num" data-count="0">0</span><span class="lbl">cuts through muscle</span></div>
-        <div class="stat"><span class="num" data-count="1">0</span><span class="lbl">day procedure</span></div>
-        <div class="stat"><span class="num" data-count="4" data-suffix="–8">0</span><span class="lbl">weekly visits, most cases</span></div>
-        <div class="stat"><span class="num" data-count="4">0</span><span class="lbl">generations of practice</span></div>
+        <div class="stat"><span class="num" data-count="0">0</span><span class="lbl"><span class="te">కండరం మీద కట్లు</span><span class="en">cuts through muscle</span></span></div>
+        <div class="stat"><span class="num" data-count="1">0</span><span class="lbl"><span class="te">డే ప్రొసీజర్</span><span class="en">day procedure</span></span></div>
+        <div class="stat"><span class="num" data-count="4" data-suffix="–8">0</span><span class="lbl"><span class="te">వారపు విజిట్లు, ఎక్కువ కేసుల్లో</span><span class="en">weekly visits, most cases</span></span></div>
+        <div class="stat"><span class="num" data-count="4">0</span><span class="lbl"><span class="te">తరాల తరబడి అనుభవం</span><span class="en">generations of practice</span></span></div>
       </div>
 
       <aside class="note reveal">
-        <h3>Honesty first</h3>
-        <p>Not every case is suited to Kshara Sutra, and no treatment is risk-free. The right answer comes from an examination, not a website. This page is general education and does not replace a consultation.</p>
+        <h3><span class="te">ముందు నిజాయితీ</span><span class="en">Honesty first</span></h3>
+        <p><span class="te">అన్ని కేసులకు క్షార సూత్రం సరిపోదు, ఏ చికిత్సా ప్రమాదరహితం కాదు. సరైన సమాధానం పరీక్ష నుంచి వస్తుంది, వెబ్‌సైట్ నుంచి కాదు. ఈ పేజీ సాధారణ అవగాహన కోసం, కన్సల్టేషన్‌కు బదులు కాదు.</span><span class="en">Not every case is suited to Kshara Sutra, and no treatment is risk-free. The right answer comes from an examination, not a website. This page is general education and does not replace a consultation.</span></p>
       </aside>
     </section>
 
     <section class="final reveal">
-      <h2>One examination tells you which road you need</h2>
-      <p>Dr. Venkatesh Kasturi, MS (Ayurveda), sees piles, fistula and fissure every day.</p>
+      <h2><span class="te">మీకు ఏ మార్గం అవసరమో ఒకే పరీక్ష చెబుతుంది</span><span class="en">One examination tells you which road you need</span></h2>
+      <p><span class="te">డా. వెంకటేష్ కస్తూరి, MS (ఆయుర్వేద), మొల, భగందరం, ఫిషర్ కేసులు రోజూ చూస్తారు.</span><span class="en">Dr. Venkatesh Kasturi, MS (Ayurveda), sees piles, fistula and fissure every day.</span></p>
       <div class="hero-cta">
-        <a class="btn solid" href="tel:+919246565535">Call +91 92465 65535</a>
-        <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener">WhatsApp us</a>
+        <a class="btn solid" href="tel:+919246565535"><span class="te">కాల్ +91 92465 65535</span><span class="en">Call +91 92465 65535</span></a>
+        <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener"><span class="te">WhatsApp లో మాట్లాడండి</span><span class="en">WhatsApp us</span></a>
       </div>
-      <a class="backhome" href="/Kasturi/">Back to the main site →</a>
+      <a class="backhome" href="/Kasturi/"><span class="te">మెయిన్ సైట్‌కి తిరిగి →</span><span class="en">Back to the main site →</span></a>
     </section>
 
     <footer class="demofoot">
-      <p>© 2026 Kasturi Ayurveda Hospital · test page for review, not indexed and not linked from the menu</p>
+      <p><span class="te">© 2026 కస్తూరి ఆయుర్వేద ఆసుపత్రి · రివ్యూ కోసం టెస్ట్ పేజీ</span><span class="en">© 2026 Kasturi Ayurveda Hospital · test page for review, not indexed and not linked from the menu</span></p>
     </footer>
 
     <style>
@@ -138,6 +145,9 @@ import '../styles/global.css';
       .progress span { display: block; height: 100%; width: 0; background: var(--turmeric); transition: width .1s linear; }
       .topbar { max-width: var(--wrap); margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; z-index: 5; }
       .home { color: var(--forest); text-decoration: none; font-weight: 700; }
+      .right { display: flex; align-items: center; gap: 10px; }
+      .langbtn { border: 1.5px solid var(--forest); background: transparent; color: var(--forest); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: var(--font-te), var(--font-body); }
+      .langbtn:active { background: var(--forest); color: var(--paper-raised); }
       .chip { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; }
       .hero { position: relative; overflow: hidden; padding: 72px 24px 96px; text-align: center; background: linear-gradient(180deg, var(--forest-tint), var(--paper) 78%); }
       .orb, .ring { position: absolute; border-radius: 50%; pointer-events: none; }
@@ -189,6 +199,15 @@ import '../styles/global.css';
       .final p { color: var(--ink-muted); margin: 0 0 24px; }
       .backhome { display: inline-block; margin-top: 26px; color: var(--forest); font-weight: 700; text-decoration: none; }
       .demofoot { text-align: center; padding: 24px; color: var(--ink-faint); font-size: 13px; }
+
+      /* language toggle: both versions are in the markup, the html class picks one */
+      html.te .en, html.en .te { display: none; }
+      html.te h1, html.te h2, html.te h3, html.te .lede, html.te .card p, html.te .note p,
+      html.te .final p, html.te .stat .lbl, html.te .btn, html.te .home, html.te .chip,
+      html.te .backhome, html.te .demofoot p { font-family: var(--font-te), var(--font-display), var(--font-body); }
+      html.te .kicker, html.te .chip { text-transform: none; letter-spacing: .04em; }
+      html.te .lede { line-height: 1.6; }
+      html.te .card p { line-height: 1.65; }
 
       .hero-inner .reveal { opacity: 1; transform: none; transition: none; animation: rise .8s ease both; }
       .hero-inner .reveal.d1 { animation-delay: .12s; }
@@ -273,6 +292,26 @@ import '../styles/global.css';
       };
       window.addEventListener('scroll', setBar, { passive: true });
       setBar();
+
+      // Language toggle (Telugu first)
+      const titles = {
+        te: 'శస్త్రచికిత్స vs క్షార సూత్రం | కస్తూరి ఆయుర్వేద ఆసుపత్రి',
+        en: 'Test page · surgery vs Kshara Sutra | Kasturi Ayurveda Hospital'
+      };
+      const langBtn = document.getElementById('langtoggle');
+      const setLang = (l) => {
+        const root = document.documentElement;
+        root.classList.remove('te', 'en');
+        root.classList.add(l);
+        root.setAttribute('lang', l);
+        localStorage.setItem('kast-lang', l);
+        if (langBtn) langBtn.textContent = l === 'te' ? 'English' : 'తెలుగు';
+        document.title = titles[l];
+      };
+      if (langBtn) langBtn.addEventListener('click', () => {
+        setLang(document.documentElement.classList.contains('te') ? 'en' : 'te');
+        showReveals();
+      });
     </script>
   </body>
 </html>
