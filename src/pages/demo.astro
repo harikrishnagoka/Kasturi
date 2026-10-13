@@ -190,6 +190,11 @@ import '../styles/global.css';
       .backhome { display: inline-block; margin-top: 26px; color: var(--forest); font-weight: 700; text-decoration: none; }
       .demofoot { text-align: center; padding: 24px; color: var(--ink-faint); font-size: 13px; }
 
+      .hero-inner .reveal { opacity: 1; transform: none; transition: none; animation: rise .8s ease both; }
+      .hero-inner .reveal.d1 { animation-delay: .12s; }
+      .hero-inner .reveal.d2 { animation-delay: .24s; }
+      .hero-inner .reveal.d3 { animation-delay: .36s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
       html.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
       html.js .reveal.d1 { transition-delay: .12s; }
       html.js .reveal.d2 { transition-delay: .24s; }
