@@ -1,0 +1,262 @@
+---
+// TEST PAGE (not linked from the menu) — motion-graphics showcase:
+// scroll-reveal sections, parallax layers and animated counters.
+// Built to preview how the real condition pages could feel.
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test page · surgery vs Kshara Sutra | Kasturi Ayurveda Hospital</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/Kasturi/brand/icon-32.png" />
+  </head>
+  <body class="demo">
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+    <header class="topbar reveal">
+      <a class="home" href="/Kasturi/">← Kasturi Ayurveda Hospital</a>
+      <span class="chip">test page · not in the menu</span>
+    </header>
+
+    <section class="hero">
+      <div class="orb orb-a" data-parallax="0.35" aria-hidden="true"></div>
+      <div class="orb orb-b" data-parallax="0.18" aria-hidden="true"></div>
+      <div class="ring ring-a" data-parallax="0.5" aria-hidden="true"></div>
+      <div class="ring ring-b" data-parallax="0.12" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="kicker reveal">Complications of surgery, honestly told</p>
+        <h1 class="reveal d1">Before you book an operation,<br /><em>meet the thread</em> that replaced it.</h1>
+        <p class="lede reveal d2">A plain-language look at what modern piles and fistula surgery asks of you, and why Ayurveda's Kshara Sutra was designed differently.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn solid" href="tel:+919246565535">Call the hospital</a>
+          <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener">Ask on WhatsApp</a>
+        </div>
+      </div>
+      <div class="cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="block" id="surgery">
+      <p class="kicker reveal">01 · the usual route</p>
+      <h2 class="reveal d1">What conventional surgery asks of you</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="glyph">🔥</span>
+          <h3>Weeks of raw pain</h3>
+          <p>Open hemorrhoidectomy is famous for painful healing. Daily dressings, sitz baths and strong painkillers are routine for the first couple of weeks.</p>
+        </article>
+        <article class="card reveal d1">
+          <span class="glyph">🏥</span>
+          <h3>Anaesthesia and a hospital bed</h3>
+          <p>Most operations need spinal or general anaesthesia, a hospital stay, and days to weeks away from work.</p>
+        </article>
+        <article class="card reveal d2">
+          <span class="glyph">🩸</span>
+          <h3>Bleeding and infection</h3>
+          <p>Delayed bleeding and wound infection are known complications of haemorrhoid and fistula surgery, sometimes needing another procedure.</p>
+        </article>
+        <article class="card reveal d3">
+          <span class="glyph">♻️</span>
+          <h3>It can come back</h3>
+          <p>Piles and fistula recur after surgery. Recurrence rates depend on the technique and how much tissue was removed or cut.</p>
+        </article>
+        <article class="card alert reveal d4">
+          <span class="glyph">⚠️</span>
+          <h3>The muscle that keeps you continent</h3>
+          <p>Fistula surgery cuts through the sphincter area. Cut too far, and patients can be left with difficulty holding stool or gas. This is the risk every fistula patient should ask about.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="break">
+      <div class="band" data-parallax="0.25" aria-hidden="true"></div>
+      <blockquote class="reveal">
+        <p class="te">కండరాన్ని కాదు, సోగను కట్ చేస్తుంది.</p>
+        <p class="en">It cuts the tract, not the muscle.</p>
+      </blockquote>
+    </section>
+
+    <section class="block" id="ayurveda">
+      <p class="kicker reveal">02 · the Ayurvedic route</p>
+      <h2 class="reveal d1">What Kshara Sutra does differently</h2>
+      <div class="cards">
+        <article class="card good reveal">
+          <span class="glyph">🧵</span>
+          <h3>A thread, not a knife</h3>
+          <p>A medicated thread treated with herbal alkaline preparations works along the fistula tract slowly, cutting and healing at the same time. The sphincter muscle is spared.</p>
+        </article>
+        <article class="card good reveal d1">
+          <span class="glyph">🕐</span>
+          <h3>Day procedure, local anaesthesia</h3>
+          <p>The thread is placed under local anaesthesia. No spinal or general anaesthesia, and you go home the same day.</p>
+        </article>
+        <article class="card good reveal d2">
+          <span class="glyph">📅</span>
+          <h3>Weekly visits, not weeks in bed</h3>
+          <p>Each week the thread is changed at a short outpatient visit. Most patients keep working through treatment.</p>
+        </article>
+        <article class="card good reveal d3">
+          <span class="glyph">🛡️</span>
+          <h3>Built for low recurrence</h3>
+          <p>Kshara Sutra treats the whole tract, so recurrence is low, which is why it is recognised and practised in government Ayurvedic hospitals across India.</p>
+        </article>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat"><span class="num" data-count="0">0</span><span class="lbl">cuts through muscle</span></div>
+        <div class="stat"><span class="num" data-count="1">0</span><span class="lbl">day procedure</span></div>
+        <div class="stat"><span class="num" data-count="4" data-suffix="–8">0</span><span class="lbl">weekly visits, most cases</span></div>
+        <div class="stat"><span class="num" data-count="4">0</span><span class="lbl">generations of practice</span></div>
+      </div>
+
+      <aside class="note reveal">
+        <h3>Honesty first</h3>
+        <p>Not every case is suited to Kshara Sutra, and no treatment is risk-free. The right answer comes from an examination, not a website. This page is general education and does not replace a consultation.</p>
+      </aside>
+    </section>
+
+    <section class="final reveal">
+      <h2>One examination tells you which road you need</h2>
+      <p>Dr. Venkatesh Kasturi, MS (Ayurveda), sees piles, fistula and fissure every day.</p>
+      <div class="hero-cta">
+        <a class="btn solid" href="tel:+919246565535">Call +91 92465 65535</a>
+        <a class="btn ghost" href="https://wa.me/919246565535" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+      <a class="backhome" href="/Kasturi/">Back to the main site →</a>
+    </section>
+
+    <footer class="demofoot">
+      <p>© 2026 Kasturi Ayurveda Hospital · test page for review, not indexed and not linked from the menu</p>
+    </footer>
+
+    <style>
+      .demo { background: var(--paper); color: var(--ink-body); font-family: var(--font-body); margin: 0; }
+      .progress { position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 60; background: transparent; }
+      .progress span { display: block; height: 100%; width: 0; background: var(--turmeric); transition: width .1s linear; }
+      .topbar { max-width: var(--wrap); margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; z-index: 5; }
+      .home { color: var(--forest); text-decoration: none; font-weight: 700; }
+      .chip { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; }
+      .hero { position: relative; overflow: hidden; padding: 72px 24px 96px; text-align: center; background: linear-gradient(180deg, var(--forest-tint), var(--paper) 78%); }
+      .orb, .ring { position: absolute; border-radius: 50%; pointer-events: none; }
+      .orb-a { width: 420px; height: 420px; left: -140px; top: -80px; background: radial-gradient(circle at 30% 30%, rgba(40,72,64,.35), transparent 65%); }
+      .orb-b { width: 520px; height: 520px; right: -180px; bottom: -160px; background: radial-gradient(circle at 60% 40%, rgba(184,120,16,.22), transparent 60%); }
+      .ring-a { width: 180px; height: 180px; border: 2px solid rgba(40,72,64,.25); left: 12%; top: 24%; }
+      .ring-b { width: 120px; height: 120px; border: 2px solid rgba(184,120,16,.35); right: 14%; top: 16%; }
+      .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+      .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--turmeric-deep); font-weight: 700; margin: 0 0 14px; }
+      h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 58px); line-height: 1.08; color: var(--ink); margin: 0 0 18px; font-weight: 600; }
+      h1 em { font-style: italic; color: var(--turmeric-deep); }
+      .lede { font-size: clamp(16px, 2.2vw, 20px); max-width: 640px; margin: 0 auto 28px; color: var(--ink-body); }
+      .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+      .btn { border-radius: 999px; padding: 13px 24px; font-weight: 700; text-decoration: none; font-size: 15px; }
+      .btn.solid { background: var(--forest); color: var(--paper-raised); }
+      .btn.ghost { border: 1.5px solid var(--forest); color: var(--forest); }
+      .cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); }
+      .cue span { display: block; width: 22px; height: 36px; border: 2px solid var(--ink-muted); border-radius: 12px; position: relative; }
+      .cue span::after { content: ''; position: absolute; left: 50%; top: 6px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--ink-muted); animation: drop 1.4s infinite; }
+      @keyframes drop { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
+
+      .block { max-width: var(--wrap); margin: 0 auto; padding: 72px 24px; }
+      h2 { font-family: var(--font-display); font-size: clamp(26px, 4vw, 40px); color: var(--ink); margin: 0 0 28px; font-weight: 600; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+      .card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px 22px; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
+      .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+      .card .glyph { font-size: 26px; display: inline-block; margin-bottom: 10px; }
+      .card h3 { margin: 0 0 8px; color: var(--ink); font-size: 19px; font-family: var(--font-display); font-weight: 600; }
+      .card p { margin: 0; line-height: 1.55; font-size: 15px; }
+      .card.alert { background: var(--alert-tint); border-color: color-mix(in srgb, var(--alert) 35%, var(--line)); }
+      .card.good { background: var(--positive-tint); border-color: color-mix(in srgb, var(--positive) 30%, var(--line)); }
+
+      .break { position: relative; padding: 90px 24px; text-align: center; overflow: hidden; background: var(--forest-deep); }
+      .band { position: absolute; inset: -20% 0; background: radial-gradient(600px 240px at 20% 30%, rgba(184,120,16,.35), transparent 70%), radial-gradient(600px 260px at 80% 70%, rgba(143,192,171,.25), transparent 70%); }
+      .break blockquote { position: relative; z-index: 2; margin: 0 auto; max-width: 760px; }
+      .break .te { font-family: var(--font-te); font-size: clamp(22px, 3.4vw, 32px); color: #F2C878; margin: 0 0 10px; }
+      .break .en { font-family: var(--font-display); font-style: italic; color: #E7EFE9; font-size: clamp(17px, 2.4vw, 22px); margin: 0; }
+
+      .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 40px 0 24px; }
+      .stat { background: var(--forest); color: var(--paper-raised); border-radius: var(--radius); padding: 22px 12px; text-align: center; }
+      .stat .num { display: block; font-family: var(--font-display); font-size: 40px; font-weight: 700; color: #F2C878; }
+      .stat .lbl { font-size: 13px; letter-spacing: .04em; }
+      .note { background: var(--turmeric-tint); border-left: 4px solid var(--turmeric); border-radius: var(--radius); padding: 20px 22px; }
+      .note h3 { margin: 0 0 6px; color: var(--ink); font-family: var(--font-display); }
+      .note p { margin: 0; font-size: 14.5px; line-height: 1.55; }
+
+      .final { text-align: center; padding: 80px 24px 60px; background: linear-gradient(180deg, var(--paper), var(--forest-tint)); }
+      .final h2 { margin-bottom: 8px; }
+      .final p { color: var(--ink-muted); margin: 0 0 24px; }
+      .backhome { display: inline-block; margin-top: 26px; color: var(--forest); font-weight: 700; text-decoration: none; }
+      .demofoot { text-align: center; padding: 24px; color: var(--ink-faint); font-size: 13px; }
+
+      .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+      .reveal.d1 { transition-delay: .12s; }
+      .reveal.d2 { transition-delay: .24s; }
+      .reveal.d3 { transition-delay: .36s; }
+      .reveal.d4 { transition-delay: .48s; }
+      .reveal.in { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .orb, .ring, .band { transform: none !important; }
+        .cue span::after { animation: none; }
+      }
+    </style>
+
+    <script>
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Scroll reveal
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Counters
+      const cio = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          cio.unobserve(e.target);
+          const el = e.target, target = parseInt(el.dataset.count, 10) || 0;
+          if (reduced) { el.textContent = target + (el.dataset.suffix || ''); continue; }
+          const t0 = performance.now(), dur = 900;
+          const tick = (t) => {
+            const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + (el.dataset.suffix || '');
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      }, { threshold: 0.6 });
+      document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
+
+      // Parallax
+      if (!reduced) {
+        const items = Array.from(document.querySelectorAll('[data-parallax]'));
+        let raf = null;
+        const move = () => {
+          raf = null;
+          const vh = window.innerHeight;
+          for (const el of items) {
+            const r = el.getBoundingClientRect();
+            const offset = (r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.parallax);
+            el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+          }
+        };
+        const onScroll = () => { if (!raf) raf = requestAnimationFrame(move); };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        move();
+      }
+
+      // Reading progress
+      const bar = document.getElementById('bar');
+      const setBar = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+      };
+      window.addEventListener('scroll', setBar, { passive: true });
+      setBar();
+    </script>
+  </body>
+</html>
